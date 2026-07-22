@@ -1,42 +1,30 @@
-# Scoop Bucket Template
+# scoop-bucket
 
-<!-- Uncomment the following line after replacing placeholders -->
-<!-- [![Tests](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml) [![Excavator](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml) -->
+A [Scoop](https://scoop.sh) bucket for **[kache](https://github.com/kunobi-ninja/kache)** — a content-addressed, zero-copy build cache for Rust, C/C++ and more.
 
-Template bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
+## Install
 
-## How do I use this template?
+```powershell
+scoop bucket add kunobi https://github.com/kunobi-ninja/scoop-bucket
 
-1. Generate your own copy of this repository with the "Use this template"
-   button.
-2. Allow all GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Actions permissions`.
-   - Select `Allow all actions and reusable workflows`.
-   - Then `Save`.
-3. Allow writing to the repository from within GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Workflow permissions`.
-   - Select `Read and write permissions`.
-   - Then `Save`.
-4. Document the bucket in `README.md`.
-5. Replace the placeholder repository string in `bin/auto-pr.ps1`.
-6. Create new manifests by copying `bucket/app-name.json.template` to
-   `bucket/<app-name>.json`.
-7. Commit and push changes.
-8. If you'd like your bucket to be indexed on `https://scoop.sh`, add the
-   topic `scoop-bucket` to your repository.
+# Stable
+scoop install kunobi/kache
 
-## How do I install these manifests?
-
-After manifests have been committed and pushed, run the following:
-
-```pwsh
-scoop bucket add <bucketname> https://github.com/<username>/<bucketname>
-scoop install <bucketname>/<manifestname>
+# Unstable (release-candidate / pre-release channel)
+scoop install kunobi/kache-unstable
 ```
 
-## How do I contribute new manifests?
+The binaries are self-contained (statically linked, no Visual C++ Redistributable required) and are published for both `x64` and `arm64` Windows.
 
-To make a new manifest contribution, please read the [Contributing
-Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
-and [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
-wiki page.
+## Channels
+
+`kache` (stable) and `kache-unstable` (pre-release) both provide a `kache` command. If you have both installed, Scoop's shim points at whichever you `scoop reset` last:
+
+```powershell
+scoop reset kache-unstable   # make `kache` run the unstable build
+scoop reset kache            # switch back to stable
+```
+
+## Maintenance
+
+Manifests auto-update from kache's GitHub Releases via the [Excavator](.github/workflows/excavator.yml) workflow (`checkver` + `autoupdate`, hashes read from the release `.sha256` sidecars). This bucket is created from [ScoopInstaller/BucketTemplate](https://github.com/ScoopInstaller/BucketTemplate).
