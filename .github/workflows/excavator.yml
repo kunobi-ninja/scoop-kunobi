@@ -2,6 +2,12 @@ name: Excavator
 
 on:
   workflow_dispatch:
+  # Fired by a downstream repo's release pipeline (kache/kobe package-publish)
+  # right after a release publishes, so manifests update immediately instead of
+  # waiting for the schedule. One dispatch re-excavates every manifest; only the
+  # one whose upstream version changed is committed (SKIP_UPDATED).
+  repository_dispatch:
+    types: [release]
   schedule:
     # run every 4 hours
     - cron: '20 */4 * * *'
