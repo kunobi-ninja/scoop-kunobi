@@ -8,14 +8,15 @@ The [Scoop](https://scoop.sh) bucket for [Kunobi Ninja](https://github.com/kunob
 ## Install
 
 ```powershell
-scoop bucket add kunobi https://github.com/kunobi-ninja/scoop-bucket
+scoop bucket add kunobi https://github.com/kunobi-ninja/scoop-kunobi
 
 # kache
 scoop install kunobi/kache            # stable
 scoop install kunobi/kache-unstable   # pre-release channel
 
 # kobe
-scoop install kunobi/kobe
+scoop install kunobi/kobe            # stable
+scoop install kunobi/kobe-unstable   # pre-release channel
 ```
 
 The binaries are published for both `x64` and `arm64` Windows.
