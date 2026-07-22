@@ -1,20 +1,24 @@
 # scoop-bucket
 
-A [Scoop](https://scoop.sh) bucket for **[kache](https://github.com/kunobi-ninja/kache)** — a content-addressed, zero-copy build cache for Rust, C/C++ and more.
+The [Scoop](https://scoop.sh) bucket for [Kunobi Ninja](https://github.com/kunobi-ninja) CLIs:
+
+- **[kache](https://github.com/kunobi-ninja/kache)** — content-addressed, zero-copy build cache for Rust, C/C++ and more.
+- **[kobe](https://github.com/kunobi-ninja/kobe)** — CLI for pools of pre-warmed Kubernetes virtual clusters.
 
 ## Install
 
 ```powershell
 scoop bucket add kunobi https://github.com/kunobi-ninja/scoop-bucket
 
-# Stable
-scoop install kunobi/kache
+# kache
+scoop install kunobi/kache            # stable
+scoop install kunobi/kache-unstable   # pre-release channel
 
-# Unstable (release-candidate / pre-release channel)
-scoop install kunobi/kache-unstable
+# kobe
+scoop install kunobi/kobe
 ```
 
-The binaries are self-contained (statically linked, no Visual C++ Redistributable required) and are published for both `x64` and `arm64` Windows.
+The binaries are published for both `x64` and `arm64` Windows.
 
 ## Channels
 
