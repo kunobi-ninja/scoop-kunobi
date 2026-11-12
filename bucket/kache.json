@@ -7,12 +7,20 @@
         "64bit": {
             "url": "https://github.com/kunobi-ninja/kache/releases/download/v2.1.1/kache-x86_64-pc-windows-msvc.zip",
             "hash": "8a30c6d8777b989338e58d72df2c0037607578869471b225943a0b1ef9fdff0a",
-            "bin": "kache.exe"
+            "bin": [
+                "kache.exe",
+                "kache-clang-cl.exe",
+                "kache-cl.exe"
+            ]
         },
         "arm64": {
             "url": "https://github.com/kunobi-ninja/kache/releases/download/v2.1.1/kache-aarch64-pc-windows-msvc.zip",
             "hash": "985dcc506e959c9c0abb63914c91bef671366cd8cf2a5dd8405e124f5939b724",
-            "bin": "kache.exe"
+            "bin": [
+                "kache.exe",
+                "kache-clang-cl.exe",
+                "kache-cl.exe"
+            ]
         }
     },
     "checkver": "github",
